@@ -20,6 +20,11 @@
 #define MATRIX_COL_PINS { D4, D3, D2, B1, F7, F6 }
 #define UNUSED_PINS
 
+/* led pins */
+#define L1 B6
+#define L2 B2
+#define L3 B3
+
 /* COL2ROW or ROW2COL */
 #define DIODE_DIRECTION COL2ROW
 

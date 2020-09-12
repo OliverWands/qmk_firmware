@@ -169,47 +169,26 @@ void led_set_user(uint8_t usb_led) {
 
 }
 
-/*
-uint32_t layer_state_set_user(uint32_t state) {
-  //current_layer_state = state;
-  setPinOutput(B6);
-  setPinOutput(B2);
-  setPinOutput(B3);
-  if (LAYER_ON(0)) {
-    writePinHigh(B6);
-  } else {
-    writePinLow(B6);
-  }
-
-  if (LAYER_ON(1)) {
-  } else {
-  }
-
-  if (LAYER_ON(2)) {
-  } else {
-  }
-
-  return state;
-};
-*/
 
 layer_state_t layer_state_set_user(layer_state_t state) {
-  setPinOutput(B6);
-  setPinOutput(B2);
-  setPinOutput(B3);
+  setPinOutput(L1);
+  setPinOutput(L2);
+  setPinOutput(L3);
   
 
-  writePinLow(B6);
-  writePinLow(B2);
-  writePinLow(B3);
+  writePinLow(L1);
+  writePinLow(L2);
+  writePinLow(L3);
   uint8_t layer = get_highest_layer(state);
   switch (layer) {
       case 0:
-        writePinHigh(B6);
+        writePinHigh(L1);
         break;
       case 1:
+        writePinHigh(L2);
         break;
       case 2:
+        writePinHigh(L3);
         break;
       case 3:
         break;
