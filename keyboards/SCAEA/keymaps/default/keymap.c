@@ -130,26 +130,25 @@ void matrix_init_user(void) {
 	setPinOutput(L1);
 	setPinOutput(L2);
 	setPinOutput(L3);
-	//for (int inx = 0; inx < 5; inx++)
-	//{
+	
 	writePinHigh(L1);
-	wait_us(300000);
+	wait_us(150000);
 	writePinLow(L1);
 	writePinHigh(L2);
-	wait_us(300000);
+	wait_us(150000);
 	writePinLow(L2);
 	writePinHigh(L3);
-	wait_us(300000);
+	wait_us(150000);
 	writePinLow(L3);
 
 	writePinHigh(L1);
-	wait_us(200000);
+	wait_us(125000);
 	writePinLow(L1);
 	writePinHigh(L2);
-	wait_us(200000);
+	wait_us(125000);
 	writePinLow(L2);
 	writePinHigh(L3);
-	wait_us(200000);
+	wait_us(125000);
 	writePinLow(L3);
 
 	writePinHigh(L1);
@@ -198,27 +197,35 @@ void matrix_init_user(void) {
 		writePinLow(L3);
 	}
 
-	for (int inx = 0; inx < 20; inx++)
+	for (int inx = 0; inx < 15; inx++)
 	{
 		writePinHigh(L1);
-		wait_us(10000);
+		wait_us(12500);
 		writePinLow(L1);
 		writePinHigh(L2);
-		wait_us(10000);
+		wait_us(12500);
 		writePinLow(L2);
 		writePinHigh(L3);
-		wait_us(10000);
+		wait_us(12500);
 		writePinLow(L3);
 	}
 
-	writePinHigh(L1);
-	writePinHigh(L2);
-	writePinHigh(L3);
-	wait_us(400000);
+	for (int inx = 0; inx < 20; inx++)
+	{
+		writePinHigh(L1);
+		wait_us(6250);
+		writePinLow(L1);
+		writePinHigh(L2);
+		wait_us(6250);
+		writePinLow(L2);
+		writePinHigh(L3);
+		wait_us(6250);
+		writePinLow(L3);
+	}
+
 	writePinLow(L1);
   	writePinLow(L2);
   	writePinLow(L3);
-	
 }
 
 void matrix_scan_user(void) {
@@ -229,35 +236,43 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 }
 
 void led_set_user(uint8_t usb_led) {
+	setPinOutput(L1);
+  	setPinOutput(L2);
+  	setPinOutput(L3);
+	if (usb_led & (1 << USB_LED_NUM_LOCK))
+	{	
+	}
+	else
+	{	
+	}
 
-	if (usb_led & (1 << USB_LED_NUM_LOCK)) {
-		
-	} else {
+	if (usb_led & (1 << USB_LED_CAPS_LOCK))
+	{
+	}
+	else
+	{
+	}
+
+	if (usb_led & (1 << USB_LED_SCROLL_LOCK))
+	{
+	}
+	else
+	{
+	}
+
+	if (usb_led & (1 << USB_LED_COMPOSE))
+	{
+	}
+	else
+	{
 		
 	}
 
-	if (usb_led & (1 << USB_LED_CAPS_LOCK)) {
-		
-	} else {
-		
+	if (usb_led & (1 << USB_LED_KANA))
+	{
 	}
-
-	if (usb_led & (1 << USB_LED_SCROLL_LOCK)) {
-		
-	} else {
-		
-	}
-
-	if (usb_led & (1 << USB_LED_COMPOSE)) {
-		
-	} else {
-		
-	}
-
-	if (usb_led & (1 << USB_LED_KANA)) {
-		
-	} else {
-		
+	else
+	{
 	}
 
 }
