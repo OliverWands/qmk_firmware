@@ -16,8 +16,8 @@
 #define MATRIX_COLS 6
 
 /* key matrix pins */
-#define MATRIX_ROW_PINS { E7, B4, B5, D7, C6 }
-#define MATRIX_COL_PINS { D4, D3, D2, B1, F7, F6 }
+#define MATRIX_ROW_PINS { E6, B4, B5, D7, C6 }
+#define MATRIX_COL_PINS { D4, D0, D1, B1, F7, F6 }
 #define UNUSED_PINS
 
 /* led pins */
