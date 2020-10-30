@@ -1,4 +1,4 @@
-#include "scaea.h"
+#include "scaea.h"w
 #include "timer.h"
 
 const uint16_t PROGMEM
@@ -9,12 +9,11 @@ const uint16_t PROGMEM
 keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 KEYMAP(
-        RESET, KC_LGUI, MO(
-1), MO(2), MO(3), M(0),
-KC_TAB, KC_Q, KC_W, KC_E, KC_R, KC_T,
-KC_CAPS, KC_A, KC_S, KC_D, KC_F, KC_G,
-KC_LSFT, KC_RABK, KC_Y, KC_X, KC_C, KC_M,
-KC_LCTL, KC_LGUI, KC_LALT, KC_SPC, MO(1), TG(2)),
+        RESET, KC_W, MO(1), MO(2), MO(3), M(0),
+        KC_TAB, KC_Q, KC_W, KC_E, KC_R, KC_T,
+        KC_CAPS, KC_A, KC_S, KC_D, KC_F, KC_G,
+        KC_LSFT, KC_RABK, KC_Y, KC_X, KC_C, KC_M,
+        KC_LCTL, KC_LGUI, KC_LALT, KC_SPC, MO(1), TG(2)),
 
 KEYMAP(
         RESET, KC_F2, KC_F4, KC_F5, KC_F11, KC_DEL,

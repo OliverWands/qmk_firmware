@@ -4,7 +4,7 @@
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 	KEYMAP(
-		RESET, KC_LGUI, MO(1), MO(2), MO(3), KC_5, 
+		RESET, KC_W, MO(1), MO(2), MO(3), KC_5, 
 		KC_TAB, KC_Q, KC_W, KC_E, KC_R, KC_T, 
 		KC_CAPS, KC_A, KC_S, KC_D, KC_F, KC_G, 
 		KC_LSFT, KC_RABK, KC_Y, KC_X, KC_C, KC_M, 
