@@ -268,7 +268,7 @@ void matrix_init_user(void) {
 }
 
 void matrix_scan_user(void) {
-    if (activeLayer == 14)
+    if (((activeLayer % 2) != 0) || activeLayer == 14)
     {
         blinkCount %= 1024;
         if (blinkCount == 1023)
@@ -277,11 +277,11 @@ void matrix_scan_user(void) {
         }
         if (blink)
         {
-            digitToBin(0);
+            setLayerIndication(activeLayer);
         }
         else
         {
-            digitToBin(7);
+            digitToBin(0);
         }
         blinkCount++;
     }
@@ -316,6 +316,6 @@ void led_set_user(uint8_t usb_led) {
 
 layer_state_t layer_state_set_user(layer_state_t state) {
     activeLayer = get_highest_layer(state);
-    setLayerIndication(activeLayer, false);
+    setLayerIndication(activeLayer);
     return state;
 }

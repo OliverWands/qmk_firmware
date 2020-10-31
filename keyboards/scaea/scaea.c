@@ -22,47 +22,37 @@ void startSequence(void) {
     writePinLow(L3);
 }
 
-void setLayerIndication(uint8_t layer, bool binaryOut) {
-    if (binaryOut)
-    {
-        digitToBin(layer);
-    }
-    else
-    {
-        switch (layer) {
-            case 0:
-            case 1:
-                digitToBin(1);
-                break;
-            case 2:
-            case 3:
-                digitToBin(2);
-                break;
-            case 4:
-            case 5:
-                digitToBin(3);
-                break;
-            case 6:
-            case 7:
-                digitToBin(4);
-                break;
-            case 8:
-            case 9:
-                digitToBin(5);
-                break;
-            case 10:
-            case 11:
-                digitToBin(6);
-                break;
-            case 12:
-            case 13:
-                digitToBin(7);
-                break;
-            case 14:
-            default:
-                digitToBin(0);
-                break;
-        }
+void setLayerIndication(uint8_t layer) {
+    switch (layer) {
+        case 0:
+        case 1:
+            digitToBin(1);
+            break;
+        case 2:
+        case 3:
+            digitToBin(2);
+            break;
+        case 4:
+        case 5:
+            digitToBin(3);
+            break;
+        case 6:
+        case 7:
+            digitToBin(4);
+            break;
+        case 8:
+        case 9:
+            digitToBin(5);
+            break;
+        case 10:
+        case 11:
+            digitToBin(6);
+            break;
+        case 12:
+        case 13:
+        case 14:
+            digitToBin(7);
+            break;
     }
 }
 
