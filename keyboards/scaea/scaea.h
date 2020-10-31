@@ -21,6 +21,6 @@
 
 void startSequence(void);
 
-layer_state_t setLayerIndication(layer_state_t state, bool binaryOut);
+void setLayerIndication(uint8_t layer, bool binaryOut);
 
 void digitToBin(uint8_t digit);

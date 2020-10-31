@@ -22,11 +22,13 @@ void startSequence(void) {
     writePinLow(L3);
 }
 
-layer_state_t setLayerIndication(layer_state_t state, bool binaryOut) {
-    uint8_t layer = get_highest_layer(state);
-    if (binaryOut) {
+void setLayerIndication(uint8_t layer, bool binaryOut) {
+    if (binaryOut)
+    {
         digitToBin(layer);
-    } else {
+    }
+    else
+    {
         switch (layer) {
             case 0:
             case 1:
@@ -62,7 +64,6 @@ layer_state_t setLayerIndication(layer_state_t state, bool binaryOut) {
                 break;
         }
     }
-    return state;
 }
 
 void digitToBin(uint8_t digit) {

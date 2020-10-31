@@ -1,6 +1,10 @@
 #include "scaea.h"
 #include "timer.h"
 
+uint8_t activeLayer = 0;
+bool blink = false;
+uint16_t blinkCount = 0;
+
 const uint16_t PROGMEM
 led[] =
 LED_PINS;
@@ -21,7 +25,7 @@ KEYMAP(
         KC_TAB, KC_Q, KC_W, KC_E, KC_R, KC_T,
         KC_CAPS, KC_A, KC_S, KC_D, KC_F, KC_G,
         KC_LSFT, KC_BSLS, KC_Y, KC_X, KC_C, KC_V,
-        KC_LCTL, KC_LGUI, KC_LALT, KC_SPC, MO(1), MO(14)
+        KC_LCTL, KC_LGUI, MO(14), KC_LALT, KC_SPC, MO(1)
 ),
 
 //
@@ -53,7 +57,7 @@ KEYMAP(
         KC_TAB, KC_MPLY, KC_MSTP, KC_7, KC_8, KC_9,
         KC_CAPS, KC_MUTE, KC_UP, KC_4, KC_5, KC_6,
         KC_LSFT, KC_LEFT, KC_DOWN, KC_1, KC_2, KC_3,
-        KC_LCTL, KC_LGUI, KC_LALT, KC_SPC, MO(3), MO(14)
+        KC_LCTL, KC_LGUI, MO(14), KC_LALT, KC_SPC, MO(3)
 ),
 
 //
@@ -73,7 +77,7 @@ KEYMAP(
 ),
 
 //
-// Layer 4
+// Layer 4 | Eagle layer
 // | ESC   | 1   | 2   | 3     | 4   | 5   |
 // | TAB   | Q   | W   | E     | R   | T   |
 // | CAPS  | A   | S   | D     | F   | G   |
@@ -81,11 +85,11 @@ KEYMAP(
 // | CTRL  | WIN | ALT | SPACE | FN1 | FN2 |
 //
 KEYMAP(
+        KC_ESC, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, MO(5), MO(14)
+        KC_TRNS, KC_TRNS, MO(14), KC_TRNS, KC_TRNS, MO(5)
 ),
 
 //
@@ -117,7 +121,7 @@ KEYMAP(
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, MO(7), MO(14)
+        KC_TRNS, KC_TRNS, MO(14), KC_TRNS, KC_TRNS, MO(7)
 ),
 
 //
@@ -149,7 +153,7 @@ KEYMAP(
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, MO(9), MO(14)
+        KC_TRNS, KC_TRNS, MO(14), KC_TRNS, KC_TRNS, MO(9)
 ),
 
 //
@@ -181,7 +185,7 @@ KEYMAP(
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, MO(11), MO(14)
+        KC_TRNS, KC_TRNS, MO(14), KC_TRNS, KC_TRNS, MO(11)
 ),
 
 //
@@ -213,7 +217,7 @@ KEYMAP(
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, MO(13), MO(14)
+        KC_TRNS, KC_TRNS, MO(14), KC_TRNS, KC_TRNS, MO(13)
 ),
 
 //
@@ -264,6 +268,23 @@ void matrix_init_user(void) {
 }
 
 void matrix_scan_user(void) {
+    if (activeLayer == 14)
+    {
+        blinkCount %= 1024;
+        if (blinkCount == 1023)
+        {
+            blink = !blink;
+        }
+        if (blink)
+        {
+            digitToBin(0);
+        }
+        else
+        {
+            digitToBin(7);
+        }
+        blinkCount++;
+    }
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
@@ -294,5 +315,7 @@ void led_set_user(uint8_t usb_led) {
 }
 
 layer_state_t layer_state_set_user(layer_state_t state) {
-    return setLayerIndication(state, false);
-};
+    activeLayer = get_highest_layer(state);
+    setLayerIndication(activeLayer, false);
+    return state;
+}
