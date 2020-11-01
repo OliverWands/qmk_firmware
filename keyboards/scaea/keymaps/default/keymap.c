@@ -109,11 +109,11 @@ KEYMAP(
 // | CTRL  | WIN | ALT | SPACE | FN1 | FN2 |
 //
 KEYMAP(
-        KC_ESC        ,EAGLE_LAYER_TOP         ,EAGLE_DIMENSION ,EAGLE_LAYER_BOT ,EAGLE_RATSNEST          ,KC_BSPC    ,
-        KC_F3         ,EAGLE_DISPLAY_LAYER_TOP ,EAGLE_MOVE      ,EAGLE_ROUTEWIRE ,EAGLE_RIPUP             ,EAGLE_TEXT ,
-        EAGLE_ZOOMFIT ,KC_S                    ,EAGLE_POLYGON   ,EAGLE_VIA       ,EAGLE_HOLE              ,EAGLE_LINE ,
-        KC_F4         ,EAGLE_DISPLAY_LAYER_BOT ,EAGLE_REDO      ,EAGLE_UNDO      ,KC_C                    ,KC_V       ,
-        KC_LCTL       ,KC_LGUI                 ,MO(14)          ,KC_LALT         ,EAGLE_DISPLAY_LAYER_STD ,MO(5)
+        KC_ESC        ,EAGLE_LAYER_TOP         ,EAGLE_LAYER_BOT ,EAGLE_DIMENSION ,EAGLE_RATSNEST ,KC_BSPC         ,
+        KC_F3         ,EAGLE_DISPLAY_LAYER_TOP ,EAGLE_UNDO      ,EAGLE_MOVE      ,EAGLE_HOLE     ,EAGLE_RIPUP     ,
+        EAGLE_ZOOMFIT ,EAGLE_DISPLAY_LAYER_STD ,KC_S            ,EAGLE_POLYGON   ,EAGLE_VIA      ,EAGLE_ROUTEWIRE ,
+        KC_F4         ,EAGLE_DISPLAY_LAYER_BOT ,EAGLE_REDO      ,EAGLE_LINE      ,KC_C           ,KC_V            ,
+        KC_LCTL       ,KC_LGUI                 ,MO(14)          ,KC_LALT         ,EAGLE_TEXT     ,MO(5)
 ),
 //
 // Layer 3.1,
