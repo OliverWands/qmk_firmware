@@ -9,9 +9,9 @@ const uint16_t PROGMEM
 led[] =
 LED_PINS;
 
-enum scaea_keycodes {
-    UNDO,
-    REDO,
+enum eagle_keycodes {
+    EAGLE_UNDO,
+    EAGLE_REDO,
     EAGLE_ZOOMFIT,
     EAGLE_MOVE,
     EAGLE_RIPUP,
@@ -112,7 +112,7 @@ KEYMAP(
         KC_ESC        ,EAGLE_LAYER_TOP         ,EAGLE_DIMENSION ,EAGLE_LAYER_BOT ,EAGLE_RATSNEST          ,KC_BSPC    ,
         KC_F3         ,EAGLE_DISPLAY_LAYER_TOP ,EAGLE_MOVE      ,EAGLE_ROUTEWIRE ,EAGLE_RIPUP             ,EAGLE_TEXT ,
         EAGLE_ZOOMFIT ,KC_S                    ,EAGLE_POLYGON   ,EAGLE_VIA       ,EAGLE_HOLE              ,EAGLE_LINE ,
-        KC_F4         ,EAGLE_DISPLAY_LAYER_BOT ,REDO            ,UNDO            ,KC_C                    ,KC_V       ,
+        KC_F4         ,EAGLE_DISPLAY_LAYER_BOT ,EAGLE_REDO      ,EAGLE_UNDO      ,KC_C                    ,KC_V       ,
         KC_LCTL       ,KC_LGUI                 ,MO(14)          ,KC_LALT         ,EAGLE_DISPLAY_LAYER_STD ,MO(5)
 ),
 //
