@@ -124,7 +124,7 @@ KEYMAP(
 // | CTRL  | WIN | ALT | SPACE | FN1 | FN2 |
 //
 KEYMAP(
-        KC_ESC, EAGLE_GRID_MM, EAGLE_GRID_MIL, EAGLE_GRID_INCH, EAGLE_GRID_MIC, KC_TRNS,
+        KC_ESC, EAGLE_GRID_MM, EAGLE_GRID_MIL, EAGLE_GRID_INCH, EAGLE_GRID_MIC, KC_DEL,
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
@@ -279,7 +279,7 @@ KEYMAP(
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case UNDO:
+        case EAGLE_UNDO:
             if (record->event.pressed) {
                 register_code(KC_LSFT);
                 register_code(KC_LCTL);
@@ -291,7 +291,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 unregister_code(KC_LSFT);
             }
             break;
-        case REDO:
+        case EAGLE_REDO:
             if (record->event.pressed) {
                 register_code(KC_LSFT);
                 register_code(KC_LCTL);
