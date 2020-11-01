@@ -9,11 +9,35 @@ const uint16_t PROGMEM
 led[] =
 LED_PINS;
 
-const uint16_t PROGMEM
-keymaps[][MATRIX_ROWS][MATRIX_COLS] =
+enum scaea_keycodes {
+    UNDO,
+    REDO,
+    EAGLE_ZOOMFIT,
+    EAGLE_MOVE,
+    EAGLE_RIPUP,
+    EAGLE_ROUTEWIRE,
+    EAGLE_TEXT,
+    EAGLE_RATSNEST,
+    EAGLE_DIMENSION,
+    EAGLE_GRID_MM,
+    EAGLE_GRID_MIL,
+    EAGLE_GRID_INCH,
+    EAGLE_GRID_MIC,
+    EAGLE_LAYER_TOP,
+    EAGLE_LAYER_BOT,
+    EAGLE_DISPLAY_LAYER_TOP,
+    EAGLE_DISPLAY_LAYER_STD,
+    EAGLE_DISPLAY_LAYER_BOT,
+    EAGLE_VIA,
+    EAGLE_HOLE,
+    EAGLE_LINE,
+    EAGLE_POLYGON
+};
+
+const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] =
 {
 //
-// Layer 0
+// Layer 1
 // | ESC   | 1   | 2   | 3     | 4   | 5   |
 // | TAB   | Q   | W   | E     | R   | T   |
 // | CAPS  | A   | S   | D     | F   | G   |
@@ -29,7 +53,7 @@ KEYMAP(
 ),
 
 //
-// Layer 1
+// Layer 1.1
 // | ESC   | 1   | 2   | 3     | 4   | 5   |
 // | TAB   | Q   | W   | E     | R   | T   |
 // | CAPS  | A   | S   | D     | F   | G   |
@@ -41,7 +65,7 @@ KEYMAP(
         KC_TAB, KC_MPLY, KC_MSTP, KC_MPRV, KC_MNXT, KC_BSPC,
         KC_CAPS, KC_MUTE, KC_UP, KC_MUTE, KC_VOLU, KC_ENT,
         KC_LSFT, KC_LEFT, KC_DOWN, KC_RGHT, KC_VOLD, KC_M,
-        KC_LCTL, KC_LGUI, KC_LALT, KC_SPC, KC_TRNS, KC_TRNS
+        KC_LCTL, KC_LGUI, KC_LALT, KC_SPC, KC_SPC, KC_TRNS
 ),
 
 //
@@ -61,7 +85,7 @@ KEYMAP(
 ),
 
 //
-// Layer 3
+// Layer 2.1
 // | ESC   | 1   | 2   | 3     | 4   | 5   |
 // | TAB   | Q   | W   | E     | R   | T   |
 // | CAPS  | A   | S   | D     | F   | G   |
@@ -77,7 +101,7 @@ KEYMAP(
 ),
 
 //
-// Layer 4 | Eagle layer
+// Layer 3 | Eagle Board layer
 // | ESC   | 1   | 2   | 3     | 4   | 5   |
 // | TAB   | Q   | W   | E     | R   | T   |
 // | CAPS  | A   | S   | D     | F   | G   |
@@ -85,15 +109,78 @@ KEYMAP(
 // | CTRL  | WIN | ALT | SPACE | FN1 | FN2 |
 //
 KEYMAP(
-        KC_ESC, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+        KC_ESC        ,EAGLE_LAYER_TOP         ,EAGLE_DIMENSION ,EAGLE_LAYER_BOT ,EAGLE_RATSNEST          ,KC_BSPC    ,
+        KC_F3         ,EAGLE_DISPLAY_LAYER_TOP ,EAGLE_MOVE      ,EAGLE_ROUTEWIRE ,EAGLE_RIPUP             ,EAGLE_TEXT ,
+        EAGLE_ZOOMFIT ,KC_S                    ,EAGLE_POLYGON   ,EAGLE_VIA       ,EAGLE_HOLE              ,EAGLE_LINE ,
+        KC_F4         ,EAGLE_DISPLAY_LAYER_BOT ,REDO            ,UNDO            ,KC_C                    ,KC_V       ,
+        KC_LCTL       ,KC_LGUI                 ,MO(14)          ,KC_LALT         ,EAGLE_DISPLAY_LAYER_STD ,MO(5)
+),
+//
+// Layer 3.1,
+// | ESC   | 1   | 2   | 3     | 4   | 5   |
+// | TAB   | Q   | W   | E     | R   | T   |
+// | CAPS  | A   | S   | D     | F   | G   |
+// | SHIFT | <   | Y   | X     | C   | V   |
+// | CTRL  | WIN | ALT | SPACE | FN1 | FN2 |
+//
+KEYMAP(
+        KC_ESC, EAGLE_GRID_MM, EAGLE_GRID_MIL, EAGLE_GRID_INCH, EAGLE_GRID_MIC, KC_TRNS,
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-        KC_TRNS, KC_TRNS, MO(14), KC_TRNS, KC_TRNS, MO(5)
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
+),
+
+//
+// Layer 4
+// | ESC   | 1   | 2   | 3     | 4   | 5   |
+// | TAB   | Q   | W   | E     | R   | T   |
+// | CAPS  | A   | S   | D     | F   | G   |
+// | SHIFT | <   | Y   | X     | C   | V   |
+// | CTRL  | WIN | ALT | SPACE | FN1 | FN2 |
+//
+KEYMAP(
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+        KC_TRNS, KC_TRNS, MO(14), KC_TRNS, KC_TRNS, MO(7)
+),
+
+//
+// Layer 4.1
+// | ESC   | 1   | 2   | 3     | 4   | 5   |
+// | TAB   | Q   | W   | E     | R   | T   |
+// | CAPS  | A   | S   | D     | F   | G   |
+// | SHIFT | <   | Y   | X     | C   | V   |
+// | CTRL  | WIN | ALT | SPACE | FN1 | FN2 |
+//
+KEYMAP(
+        RESET, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
 ),
 
 //
 // Layer 5
+// | ESC   | 1   | 2   | 3     | 4   | 5   |
+// | TAB   | Q   | W   | E     | R   | T   |
+// | CAPS  | A   | S   | D     | F   | G   |
+// | SHIFT | <   | Y   | X     | C   | V   |
+// | CTRL  | WIN | ALT | SPACE | FN1 | FN2 |
+//
+KEYMAP(
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+        KC_TRNS, KC_TRNS, MO(14), KC_TRNS, KC_TRNS, MO(9)
+),
+
+//
+// Layer 5.1
 // | ESC   | 1   | 2   | 3     | 4   | 5   |
 // | TAB   | Q   | W   | E     | R   | T   |
 // | CAPS  | A   | S   | D     | F   | G   |
@@ -121,75 +208,11 @@ KEYMAP(
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-        KC_TRNS, KC_TRNS, MO(14), KC_TRNS, KC_TRNS, MO(7)
-),
-
-//
-// Layer 7
-// | ESC   | 1   | 2   | 3     | 4   | 5   |
-// | TAB   | Q   | W   | E     | R   | T   |
-// | CAPS  | A   | S   | D     | F   | G   |
-// | SHIFT | <   | Y   | X     | C   | V   |
-// | CTRL  | WIN | ALT | SPACE | FN1 | FN2 |
-//
-KEYMAP(
-        RESET, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
-),
-
-//
-// Layer 8
-// | ESC   | 1   | 2   | 3     | 4   | 5   |
-// | TAB   | Q   | W   | E     | R   | T   |
-// | CAPS  | A   | S   | D     | F   | G   |
-// | SHIFT | <   | Y   | X     | C   | V   |
-// | CTRL  | WIN | ALT | SPACE | FN1 | FN2 |
-//
-KEYMAP(
-        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-        KC_TRNS, KC_TRNS, MO(14), KC_TRNS, KC_TRNS, MO(9)
-),
-
-//
-// Layer 9
-// | ESC   | 1   | 2   | 3     | 4   | 5   |
-// | TAB   | Q   | W   | E     | R   | T   |
-// | CAPS  | A   | S   | D     | F   | G   |
-// | SHIFT | <   | Y   | X     | C   | V   |
-// | CTRL  | WIN | ALT | SPACE | FN1 | FN2 |
-//
-KEYMAP(
-        RESET, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
-),
-
-//
-// Layer 10
-// | ESC   | 1   | 2   | 3     | 4   | 5   |
-// | TAB   | Q   | W   | E     | R   | T   |
-// | CAPS  | A   | S   | D     | F   | G   |
-// | SHIFT | <   | Y   | X     | C   | V   |
-// | CTRL  | WIN | ALT | SPACE | FN1 | FN2 |
-//
-KEYMAP(
-        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
         KC_TRNS, KC_TRNS, MO(14), KC_TRNS, KC_TRNS, MO(11)
 ),
 
 //
-// Layer 11
+// Layer 6.1
 // | ESC   | 1   | 2   | 3     | 4   | 5   |
 // | TAB   | Q   | W   | E     | R   | T   |
 // | CAPS  | A   | S   | D     | F   | G   |
@@ -205,7 +228,7 @@ KEYMAP(
 ),
 
 //
-// Layer 12
+// Layer 7
 // | ESC   | 1   | 2   | 3     | 4   | 5   |
 // | TAB   | Q   | W   | E     | R   | T   |
 // | CAPS  | A   | S   | D     | F   | G   |
@@ -221,7 +244,7 @@ KEYMAP(
 ),
 
 //
-// Layer 13
+// Layer 7.1
 // | ESC   | 1   | 2   | 3     | 4   | 5   |
 // | TAB   | Q   | W   | E     | R   | T   |
 // | CAPS  | A   | S   | D     | F   | G   |
@@ -254,13 +277,256 @@ KEYMAP(
 )
 };
 
-const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt) {
-    //keyevent_t event = record->event;
-
-    switch (id) {
-
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case UNDO:
+            if (record->event.pressed) {
+                register_code(KC_LSFT);
+                register_code(KC_LCTL);
+                register_code(KC_LALT);
+                register_code(KC_A);
+                unregister_code(KC_A);
+                unregister_code(KC_LALT);
+                unregister_code(KC_LCTL);
+                unregister_code(KC_LSFT);
+            }
+            break;
+        case REDO:
+            if (record->event.pressed) {
+                register_code(KC_LSFT);
+                register_code(KC_LCTL);
+                register_code(KC_LALT);
+                register_code(KC_B);
+                unregister_code(KC_B);
+                unregister_code(KC_LALT);
+                unregister_code(KC_LCTL);
+                unregister_code(KC_LSFT);
+            }
+            break;
+        case EAGLE_ZOOMFIT:
+            if (record->event.pressed) {
+                register_code(KC_LALT);
+                register_code(KC_F2);
+                unregister_code(KC_F2);
+                unregister_code(KC_LALT);
+            }
+            break;
+        case EAGLE_MOVE:
+            if (record->event.pressed) {
+                register_code(KC_LCTL);
+                register_code(KC_M);
+                unregister_code(KC_M);
+                unregister_code(KC_LCTL);
+            }
+            break;
+        case EAGLE_RIPUP:
+            if (record->event.pressed) {
+                register_code(KC_LSFT);
+                register_code(KC_LCTL);
+                register_code(KC_R);
+                unregister_code(KC_R);
+                unregister_code(KC_LCTL);
+                unregister_code(KC_LSFT);
+            }
+            break;
+        case EAGLE_ROUTEWIRE:
+            if (record->event.pressed) {
+                register_code(KC_LCTL);
+                register_code(KC_1);
+                unregister_code(KC_1);
+                unregister_code(KC_LCTL);
+            }
+            break;
+        case EAGLE_TEXT:
+            if (record->event.pressed) {
+                register_code(KC_LCTL);
+                register_code(KC_T);
+                unregister_code(KC_T);
+                unregister_code(KC_LCTL);
+            }
+            break;
+        case EAGLE_GRID_MM:
+            if (record->event.pressed) {
+                register_code(KC_LSFT);
+                register_code(KC_LCTL);
+                register_code(KC_LALT);
+                register_code(KC_F1);
+                unregister_code(KC_F1);
+                unregister_code(KC_LALT);
+                unregister_code(KC_LCTL);
+                unregister_code(KC_LSFT);
+            }
+            break;
+        case EAGLE_GRID_MIL:
+            if (record->event.pressed) {
+                register_code(KC_LSFT);
+                register_code(KC_LCTL);
+                register_code(KC_LALT);
+                register_code(KC_F2);
+                unregister_code(KC_F2);
+                unregister_code(KC_LALT);
+                unregister_code(KC_LCTL);
+                unregister_code(KC_LSFT);
+            }
+            break;
+        case EAGLE_GRID_INCH:
+            if (record->event.pressed) {
+                register_code(KC_LSFT);
+                register_code(KC_LCTL);
+                register_code(KC_LALT);
+                register_code(KC_F3);
+                unregister_code(KC_F3);
+                unregister_code(KC_LALT);
+                unregister_code(KC_LCTL);
+                unregister_code(KC_LSFT);
+            }
+            break;
+        case EAGLE_GRID_MIC:
+            if (record->event.pressed) {
+                register_code(KC_LSFT);
+                register_code(KC_LCTL);
+                register_code(KC_LALT);
+                register_code(KC_F4);
+                unregister_code(KC_F4);
+                unregister_code(KC_LALT);
+                unregister_code(KC_LCTL);
+                unregister_code(KC_LSFT);
+            }
+            break;
+        case EAGLE_DIMENSION:
+            if (record->event.pressed) {
+                register_code(KC_LSFT);
+                register_code(KC_LCTL);
+                register_code(KC_LALT);
+                register_code(KC_F5);
+                unregister_code(KC_F5);
+                unregister_code(KC_LALT);
+                unregister_code(KC_LCTL);
+                unregister_code(KC_LSFT);
+            }
+            break;
+        case EAGLE_RATSNEST:
+            if (record->event.pressed) {
+                register_code(KC_LSFT);
+                register_code(KC_LCTL);
+                register_code(KC_LALT);
+                register_code(KC_F6);
+                unregister_code(KC_F6);
+                unregister_code(KC_LALT);
+                unregister_code(KC_LCTL);
+                unregister_code(KC_LSFT);
+            }
+            break;
+        case EAGLE_DISPLAY_LAYER_TOP:
+            if (record->event.pressed) {
+                register_code(KC_LSFT);
+                register_code(KC_LCTL);
+                register_code(KC_LALT);
+                register_code(KC_F7);
+                unregister_code(KC_F7);
+                unregister_code(KC_LALT);
+                unregister_code(KC_LCTL);
+                unregister_code(KC_LSFT);
+            }
+            break;
+        case EAGLE_DISPLAY_LAYER_STD:
+            if (record->event.pressed) {
+                register_code(KC_LSFT);
+                register_code(KC_LCTL);
+                register_code(KC_LALT);
+                register_code(KC_F8);
+                unregister_code(KC_F8);
+                unregister_code(KC_LALT);
+                unregister_code(KC_LCTL);
+                unregister_code(KC_LSFT);
+            }
+            break;
+        case EAGLE_DISPLAY_LAYER_BOT:
+            if (record->event.pressed) {
+                register_code(KC_LSFT);
+                register_code(KC_LCTL);
+                register_code(KC_LALT);
+                register_code(KC_F9);
+                unregister_code(KC_F9);
+                unregister_code(KC_LALT);
+                unregister_code(KC_LCTL);
+                unregister_code(KC_LSFT);
+            }
+            break;
+        case EAGLE_LAYER_TOP:
+            if (record->event.pressed) {
+                register_code(KC_LSFT);
+                register_code(KC_LCTL);
+                register_code(KC_LALT);
+                register_code(KC_F11);
+                unregister_code(KC_F11);
+                unregister_code(KC_LALT);
+                unregister_code(KC_LCTL);
+                unregister_code(KC_LSFT);
+            }
+            break;
+        case EAGLE_LAYER_BOT:
+            if (record->event.pressed) {
+                register_code(KC_LSFT);
+                register_code(KC_LCTL);
+                register_code(KC_LALT);
+                register_code(KC_F12);
+                unregister_code(KC_F12);
+                unregister_code(KC_LALT);
+                unregister_code(KC_LCTL);
+                unregister_code(KC_LSFT);
+            }
+            break;
+        case EAGLE_VIA:
+            if (record->event.pressed) {
+                register_code(KC_LSFT);
+                register_code(KC_LCTL);
+                register_code(KC_LALT);
+                register_code(KC_V);
+                unregister_code(KC_V);
+                unregister_code(KC_LALT);
+                unregister_code(KC_LCTL);
+                unregister_code(KC_LSFT);
+            }
+            break;
+        case EAGLE_HOLE:
+            if (record->event.pressed) {
+                register_code(KC_LSFT);
+                register_code(KC_LCTL);
+                register_code(KC_LALT);
+                register_code(KC_H);
+                unregister_code(KC_H);
+                unregister_code(KC_LALT);
+                unregister_code(KC_LCTL);
+                unregister_code(KC_LSFT);
+            }
+            break;
+        case EAGLE_LINE:
+            if (record->event.pressed) {
+                register_code(KC_LSFT);
+                register_code(KC_LCTL);
+                register_code(KC_LALT);
+                register_code(KC_L);
+                unregister_code(KC_L);
+                unregister_code(KC_LALT);
+                unregister_code(KC_LCTL);
+                unregister_code(KC_LSFT);
+            }
+            break;
+        case EAGLE_POLYGON:
+            if (record->event.pressed) {
+                register_code(KC_LSFT);
+                register_code(KC_LCTL);
+                register_code(KC_LALT);
+                register_code(KC_P);
+                unregister_code(KC_P);
+                unregister_code(KC_LALT);
+                unregister_code(KC_LCTL);
+                unregister_code(KC_LSFT);
+            }
+            break;
     }
-    return MACRO_NONE;
+    return true;
 }
 
 void matrix_init_user(void) {
@@ -285,10 +551,6 @@ void matrix_scan_user(void) {
         }
         blinkCount++;
     }
-}
-
-bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    return true;
 }
 
 void led_set_user(uint8_t usb_led) {
