@@ -37,6 +37,23 @@ enum eagle_keycodes {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] =
 {
 //
+// Layer 0
+// | ESC   | 1   | 2   | 3     | 4   | 5   |
+// | TAB   | Q   | W   | E     | R   | T   |
+// | CAPS  | A   | S   | D     | F   | G   |
+// | SHIFT | <   | Y   | X     | C   | V   |
+// | CTRL  | WIN | ALT | SPACE | FN1 | FN2 |
+//
+//
+KEYMAP(
+    RESET,   TO(1),   TO(3),   TO(5),   TO(7),   TO(9),
+    KC_NO, TO(11),  TO(13),  KC_NO, KC_NO, KC_NO,
+    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
+    KC_NO, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO
+),
+        
+//
 // Layer 1
 // | ESC   | 1   | 2   | 3     | 4   | 5   |
 // | TAB   | Q   | W   | E     | R   | T   |
@@ -49,7 +66,7 @@ KEYMAP(
         KC_TAB, KC_Q, KC_W, KC_E, KC_R, KC_T,
         KC_CAPS, KC_A, KC_S, KC_D, KC_F, KC_G,
         KC_LSFT, KC_BSLS, KC_Y, KC_X, KC_C, KC_V,
-        KC_LCTL, KC_LGUI, MO(14), KC_LALT, KC_SPC, MO(1)
+        KC_LCTL, KC_LGUI, OSL(0), KC_LALT, KC_SPC, MO(2)
 ),
 
 //
@@ -81,7 +98,7 @@ KEYMAP(
         KC_TAB, KC_MPLY, KC_MSTP, KC_7, KC_8, KC_9,
         KC_CAPS, KC_MUTE, KC_UP, KC_4, KC_5, KC_6,
         KC_LSFT, KC_LEFT, KC_DOWN, KC_1, KC_2, KC_3,
-        KC_LCTL, KC_LGUI, MO(14), KC_LALT, KC_SPC, MO(3)
+        KC_LCTL, KC_LGUI, OSL(0), KC_LALT, KC_SPC, MO(4)
 ),
 
 //
@@ -100,36 +117,7 @@ KEYMAP(
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
 ),
 
-//
-// Layer 3 | Eagle Board layer
-// | ESC   | 1   | 2   | 3     | 4   | 5   |
-// | TAB   | Q   | W   | E     | R   | T   |
-// | CAPS  | A   | S   | D     | F   | G   |
-// | SHIFT | <   | Y   | X     | C   | V   |
-// | CTRL  | WIN | ALT | SPACE | FN1 | FN2 |
-//
-KEYMAP(
-        KC_ESC        ,EAGLE_LAYER_TOP         ,EAGLE_LAYER_BOT ,EAGLE_DIMENSION ,EAGLE_RATSNEST ,KC_BSPC         ,
-        KC_F3         ,EAGLE_DISPLAY_LAYER_TOP ,EAGLE_UNDO      ,EAGLE_MOVE      ,EAGLE_HOLE     ,EAGLE_RIPUP     ,
-        EAGLE_ZOOMFIT ,EAGLE_DISPLAY_LAYER_STD ,KC_S            ,EAGLE_POLYGON   ,EAGLE_VIA      ,EAGLE_ROUTEWIRE ,
-        KC_F4         ,EAGLE_DISPLAY_LAYER_BOT ,EAGLE_REDO      ,EAGLE_LINE      ,KC_C           ,KC_V            ,
-        KC_LCTL       ,KC_LGUI                 ,MO(14)          ,KC_LALT         ,EAGLE_TEXT     ,MO(5)
-),
-//
-// Layer 3.1,
-// | ESC   | 1   | 2   | 3     | 4   | 5   |
-// | TAB   | Q   | W   | E     | R   | T   |
-// | CAPS  | A   | S   | D     | F   | G   |
-// | SHIFT | <   | Y   | X     | C   | V   |
-// | CTRL  | WIN | ALT | SPACE | FN1 | FN2 |
-//
-KEYMAP(
-        KC_ESC, EAGLE_GRID_MM, EAGLE_GRID_MIL, EAGLE_GRID_INCH, EAGLE_GRID_MIC, KC_DEL,
-        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
-),
+
 
 //
 // Layer 4
@@ -144,7 +132,7 @@ KEYMAP(
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-        KC_TRNS, KC_TRNS, MO(14), KC_TRNS, KC_TRNS, MO(7)
+        KC_TRNS, KC_TRNS, OSL(0), KC_TRNS, KC_TRNS, MO(8)
 ),
 
 //
@@ -176,7 +164,7 @@ KEYMAP(
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-        KC_TRNS, KC_TRNS, MO(14), KC_TRNS, KC_TRNS, MO(9)
+        KC_TRNS, KC_TRNS, OSL(0), KC_TRNS, KC_TRNS, MO(10)
 ),
 
 //
@@ -208,7 +196,7 @@ KEYMAP(
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-        KC_TRNS, KC_TRNS, MO(14), KC_TRNS, KC_TRNS, MO(11)
+        KC_TRNS, KC_TRNS, OSL(0), KC_TRNS, KC_TRNS, MO(12)
 ),
 
 //
@@ -240,7 +228,7 @@ KEYMAP(
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-        KC_TRNS, KC_TRNS, MO(14), KC_TRNS, KC_TRNS, MO(13)
+        KC_TRNS, KC_TRNS, OSL(0), KC_TRNS, KC_TRNS, MO(14)
 ),
 
 //
@@ -260,21 +248,36 @@ KEYMAP(
 ),
 
 //
-// Layer 14
+// Layer 3 | Eagle Board layer
 // | ESC   | 1   | 2   | 3     | 4   | 5   |
 // | TAB   | Q   | W   | E     | R   | T   |
 // | CAPS  | A   | S   | D     | F   | G   |
 // | SHIFT | <   | Y   | X     | C   | V   |
 // | CTRL  | WIN | ALT | SPACE | FN1 | FN2 |
 //
+KEYMAP(
+        KC_ESC        ,EAGLE_LAYER_TOP         ,EAGLE_LAYER_BOT ,EAGLE_DIMENSION ,EAGLE_RATSNEST ,KC_BSPC         ,
+        KC_F3         ,EAGLE_DISPLAY_LAYER_TOP ,EAGLE_UNDO      ,EAGLE_MOVE      ,EAGLE_HOLE     ,EAGLE_RIPUP     ,
+        EAGLE_ZOOMFIT ,EAGLE_DISPLAY_LAYER_STD ,KC_S            ,EAGLE_POLYGON   ,EAGLE_VIA      ,EAGLE_ROUTEWIRE ,
+        KC_F4         ,EAGLE_DISPLAY_LAYER_BOT ,EAGLE_REDO      ,EAGLE_LINE      ,KC_C           ,KC_V            ,
+        KC_LCTL       ,KC_LGUI                 ,OSL(0)          ,KC_LALT         ,EAGLE_TEXT     ,MO(6)
+),
+//
+// Layer 3.1,
+// | ESC   | 1   | 2   | 3     | 4   | 5   |
+// | TAB   | Q   | W   | E     | R   | T   |
+// | CAPS  | A   | S   | D     | F   | G   |
+// | SHIFT | <   | Y   | X     | C   | V   |
+// | CTRL  | WIN | ALT | SPACE | FN1 | FN2 |
 //
 KEYMAP(
-        RESET, TO(0), TO(2), TO(4), TO(6), TO(8),
-        KC_TRNS, TO(10), TO(12), KC_TRNS, KC_TRNS, KC_TRNS,
+        KC_ESC, EAGLE_GRID_MM, EAGLE_GRID_MIL, EAGLE_GRID_INCH, EAGLE_GRID_MIC, KC_DEL,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
-)
+)j
+
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
@@ -531,10 +534,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
 void matrix_init_user(void) {
     startSequence();
+//    layer_clear();
+//    layer_on(1);
 }
 
 void matrix_scan_user(void) {
-    if (((activeLayer % 2) != 0) || activeLayer == 14)
+    if (((activeLayer % 2) == 0) || activeLayer == 0)
     {
         blinkCount %= 1024;
         if (blinkCount == 1023)

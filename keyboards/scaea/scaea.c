@@ -24,33 +24,33 @@ void startSequence(void) {
 
 void setLayerIndication(uint8_t layer) {
     switch (layer) {
-        case 0:
         case 1:
+        case 2:
             digitToBin(1);
             break;
-        case 2:
         case 3:
+        case 4:
             digitToBin(2);
             break;
-        case 4:
         case 5:
+        case 6:
             digitToBin(3);
             break;
-        case 6:
         case 7:
+        case 8:
             digitToBin(4);
             break;
-        case 8:
         case 9:
+        case 10:
             digitToBin(5);
             break;
-        case 10:
         case 11:
+        case 12:
             digitToBin(6);
             break;
-        case 12:
         case 13:
         case 14:
+        case 0:
             digitToBin(7);
             break;
     }
