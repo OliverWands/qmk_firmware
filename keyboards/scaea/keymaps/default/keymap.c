@@ -1,5 +1,6 @@
 #include "scaea.h"
 #include "timer.h"
+#include "keymap_german.h"
 
 uint8_t activeLayer = 0;
 bool blink = false;
@@ -276,7 +277,7 @@ KEYMAP(
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
-)j
+)
 
 };
 
