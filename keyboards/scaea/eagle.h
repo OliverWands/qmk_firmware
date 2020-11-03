@@ -6,7 +6,7 @@
 #define QMK_FIRMWARE_EAGLEMACROS_H
 
 enum eagle_keycodes {
-    EAGLE_UNDO,
+    EAGLE_UNDO = SAFE_RANGE,
     EAGLE_REDO,
     EAGLE_ZOOMFIT,
     EAGLE_MOVE,
@@ -30,7 +30,7 @@ enum eagle_keycodes {
     EAGLE_POLYGON
 };
 
-void processEagleMacro(uint16_t keycode, keyrecord_t *record)
+bool processEagleMacro(uint16_t keycode, keyrecord_t *record)
 {
     switch (keycode) {
         case EAGLE_UNDO:
@@ -44,6 +44,7 @@ void processEagleMacro(uint16_t keycode, keyrecord_t *record)
                 unregister_code(KC_LCTL);
                 unregister_code(KC_LSFT);
             }
+            return false;
             break;
         case EAGLE_REDO:
             if (record->event.pressed) {
@@ -56,6 +57,7 @@ void processEagleMacro(uint16_t keycode, keyrecord_t *record)
                 unregister_code(KC_LCTL);
                 unregister_code(KC_LSFT);
             }
+            return false;
             break;
         case EAGLE_ZOOMFIT:
             if (record->event.pressed) {
@@ -64,6 +66,7 @@ void processEagleMacro(uint16_t keycode, keyrecord_t *record)
                 unregister_code(KC_F2);
                 unregister_code(KC_LALT);
             }
+            return false;
             break;
         case EAGLE_MOVE:
             if (record->event.pressed) {
@@ -72,6 +75,7 @@ void processEagleMacro(uint16_t keycode, keyrecord_t *record)
                 unregister_code(KC_M);
                 unregister_code(KC_LCTL);
             }
+            return false;
             break;
         case EAGLE_RIPUP:
             if (record->event.pressed) {
@@ -82,6 +86,7 @@ void processEagleMacro(uint16_t keycode, keyrecord_t *record)
                 unregister_code(KC_LCTL);
                 unregister_code(KC_LSFT);
             }
+            return false;
             break;
         case EAGLE_ROUTEWIRE:
             if (record->event.pressed) {
@@ -90,6 +95,7 @@ void processEagleMacro(uint16_t keycode, keyrecord_t *record)
                 unregister_code(KC_1);
                 unregister_code(KC_LCTL);
             }
+            return false;
             break;
         case EAGLE_TEXT:
             if (record->event.pressed) {
@@ -98,6 +104,7 @@ void processEagleMacro(uint16_t keycode, keyrecord_t *record)
                 unregister_code(KC_T);
                 unregister_code(KC_LCTL);
             }
+            return false;
             break;
         case EAGLE_GRID_MM:
             if (record->event.pressed) {
@@ -110,6 +117,7 @@ void processEagleMacro(uint16_t keycode, keyrecord_t *record)
                 unregister_code(KC_LCTL);
                 unregister_code(KC_LSFT);
             }
+            return false;
             break;
         case EAGLE_GRID_MIL:
             if (record->event.pressed) {
@@ -122,6 +130,7 @@ void processEagleMacro(uint16_t keycode, keyrecord_t *record)
                 unregister_code(KC_LCTL);
                 unregister_code(KC_LSFT);
             }
+            return false;
             break;
         case EAGLE_GRID_INCH:
             if (record->event.pressed) {
@@ -134,6 +143,7 @@ void processEagleMacro(uint16_t keycode, keyrecord_t *record)
                 unregister_code(KC_LCTL);
                 unregister_code(KC_LSFT);
             }
+            return false;
             break;
         case EAGLE_GRID_MIC:
             if (record->event.pressed) {
@@ -146,6 +156,7 @@ void processEagleMacro(uint16_t keycode, keyrecord_t *record)
                 unregister_code(KC_LCTL);
                 unregister_code(KC_LSFT);
             }
+            return false;
             break;
         case EAGLE_DIMENSION:
             if (record->event.pressed) {
@@ -158,6 +169,7 @@ void processEagleMacro(uint16_t keycode, keyrecord_t *record)
                 unregister_code(KC_LCTL);
                 unregister_code(KC_LSFT);
             }
+            return false;
             break;
         case EAGLE_RATSNEST:
             if (record->event.pressed) {
@@ -170,6 +182,7 @@ void processEagleMacro(uint16_t keycode, keyrecord_t *record)
                 unregister_code(KC_LCTL);
                 unregister_code(KC_LSFT);
             }
+            return false;
             break;
         case EAGLE_DISPLAY_LAYER_TOP:
             if (record->event.pressed) {
@@ -182,6 +195,7 @@ void processEagleMacro(uint16_t keycode, keyrecord_t *record)
                 unregister_code(KC_LCTL);
                 unregister_code(KC_LSFT);
             }
+            return false;
             break;
         case EAGLE_DISPLAY_LAYER_STD:
             if (record->event.pressed) {
@@ -194,6 +208,7 @@ void processEagleMacro(uint16_t keycode, keyrecord_t *record)
                 unregister_code(KC_LCTL);
                 unregister_code(KC_LSFT);
             }
+            return false;
             break;
         case EAGLE_DISPLAY_LAYER_BOT:
             if (record->event.pressed) {
@@ -206,6 +221,7 @@ void processEagleMacro(uint16_t keycode, keyrecord_t *record)
                 unregister_code(KC_LCTL);
                 unregister_code(KC_LSFT);
             }
+            return false;
             break;
         case EAGLE_LAYER_TOP:
             if (record->event.pressed) {
@@ -213,11 +229,13 @@ void processEagleMacro(uint16_t keycode, keyrecord_t *record)
                 register_code(KC_LCTL);
                 register_code(KC_LALT);
                 register_code(KC_F11);
+
                 unregister_code(KC_F11);
                 unregister_code(KC_LALT);
                 unregister_code(KC_LCTL);
                 unregister_code(KC_LSFT);
             }
+            return false;
             break;
         case EAGLE_LAYER_BOT:
             if (record->event.pressed) {
@@ -230,6 +248,7 @@ void processEagleMacro(uint16_t keycode, keyrecord_t *record)
                 unregister_code(KC_LCTL);
                 unregister_code(KC_LSFT);
             }
+            return false;
             break;
         case EAGLE_VIA:
             if (record->event.pressed) {
@@ -242,6 +261,7 @@ void processEagleMacro(uint16_t keycode, keyrecord_t *record)
                 unregister_code(KC_LCTL);
                 unregister_code(KC_LSFT);
             }
+            return false;
             break;
         case EAGLE_HOLE:
             if (record->event.pressed) {
@@ -254,6 +274,7 @@ void processEagleMacro(uint16_t keycode, keyrecord_t *record)
                 unregister_code(KC_LCTL);
                 unregister_code(KC_LSFT);
             }
+            return false;
             break;
         case EAGLE_LINE:
             if (record->event.pressed) {
@@ -266,6 +287,7 @@ void processEagleMacro(uint16_t keycode, keyrecord_t *record)
                 unregister_code(KC_LCTL);
                 unregister_code(KC_LSFT);
             }
+            return false;
             break;
         case EAGLE_POLYGON:
             if (record->event.pressed) {
@@ -278,7 +300,10 @@ void processEagleMacro(uint16_t keycode, keyrecord_t *record)
                 unregister_code(KC_LCTL);
                 unregister_code(KC_LSFT);
             }
+            return false;
             break;
+        default:
+            return true;
     }
 }
 
