@@ -38,8 +38,7 @@ bool processEagleMacro(uint16_t keycode, keyrecord_t *record)
                 register_code(KC_LSFT);
                 register_code(KC_LCTL);
                 register_code(KC_LALT);
-                register_code(KC_A);
-                unregister_code(KC_A);
+                tap_code(KC_A);
                 unregister_code(KC_LALT);
                 unregister_code(KC_LCTL);
                 unregister_code(KC_LSFT);
@@ -51,8 +50,7 @@ bool processEagleMacro(uint16_t keycode, keyrecord_t *record)
                 register_code(KC_LSFT);
                 register_code(KC_LCTL);
                 register_code(KC_LALT);
-                register_code(KC_B);
-                unregister_code(KC_B);
+                tap_code(KC_B);
                 unregister_code(KC_LALT);
                 unregister_code(KC_LCTL);
                 unregister_code(KC_LSFT);
@@ -62,8 +60,7 @@ bool processEagleMacro(uint16_t keycode, keyrecord_t *record)
         case EAGLE_ZOOMFIT:
             if (record->event.pressed) {
                 register_code(KC_LALT);
-                register_code(KC_F2);
-                unregister_code(KC_F2);
+                tap_code(KC_F2);
                 unregister_code(KC_LALT);
             }
             return false;
@@ -71,8 +68,7 @@ bool processEagleMacro(uint16_t keycode, keyrecord_t *record)
         case EAGLE_MOVE:
             if (record->event.pressed) {
                 register_code(KC_LCTL);
-                register_code(KC_M);
-                unregister_code(KC_M);
+                tap_code(KC_M);
                 unregister_code(KC_LCTL);
             }
             return false;
@@ -81,8 +77,7 @@ bool processEagleMacro(uint16_t keycode, keyrecord_t *record)
             if (record->event.pressed) {
                 register_code(KC_LSFT);
                 register_code(KC_LCTL);
-                register_code(KC_R);
-                unregister_code(KC_R);
+                tap_code(KC_R);
                 unregister_code(KC_LCTL);
                 unregister_code(KC_LSFT);
             }
@@ -91,8 +86,7 @@ bool processEagleMacro(uint16_t keycode, keyrecord_t *record)
         case EAGLE_ROUTEWIRE:
             if (record->event.pressed) {
                 register_code(KC_LCTL);
-                register_code(KC_1);
-                unregister_code(KC_1);
+                tap_code(KC_1);
                 unregister_code(KC_LCTL);
             }
             return false;
@@ -100,8 +94,7 @@ bool processEagleMacro(uint16_t keycode, keyrecord_t *record)
         case EAGLE_TEXT:
             if (record->event.pressed) {
                 register_code(KC_LCTL);
-                register_code(KC_T);
-                unregister_code(KC_T);
+                tap_code(KC_T);
                 unregister_code(KC_LCTL);
             }
             return false;
@@ -111,8 +104,7 @@ bool processEagleMacro(uint16_t keycode, keyrecord_t *record)
                 register_code(KC_LSFT);
                 register_code(KC_LCTL);
                 register_code(KC_LALT);
-                register_code(KC_F1);
-                unregister_code(KC_F1);
+                tap_code(KC_F1);
                 unregister_code(KC_LALT);
                 unregister_code(KC_LCTL);
                 unregister_code(KC_LSFT);
@@ -124,8 +116,7 @@ bool processEagleMacro(uint16_t keycode, keyrecord_t *record)
                 register_code(KC_LSFT);
                 register_code(KC_LCTL);
                 register_code(KC_LALT);
-                register_code(KC_F2);
-                unregister_code(KC_F2);
+                tap_code(KC_F2);
                 unregister_code(KC_LALT);
                 unregister_code(KC_LCTL);
                 unregister_code(KC_LSFT);
@@ -137,8 +128,7 @@ bool processEagleMacro(uint16_t keycode, keyrecord_t *record)
                 register_code(KC_LSFT);
                 register_code(KC_LCTL);
                 register_code(KC_LALT);
-                register_code(KC_F3);
-                unregister_code(KC_F3);
+                tap_code(KC_F3);
                 unregister_code(KC_LALT);
                 unregister_code(KC_LCTL);
                 unregister_code(KC_LSFT);
@@ -150,8 +140,7 @@ bool processEagleMacro(uint16_t keycode, keyrecord_t *record)
                 register_code(KC_LSFT);
                 register_code(KC_LCTL);
                 register_code(KC_LALT);
-                register_code(KC_F4);
-                unregister_code(KC_F4);
+                tap_code(KC_F4);
                 unregister_code(KC_LALT);
                 unregister_code(KC_LCTL);
                 unregister_code(KC_LSFT);
@@ -163,8 +152,7 @@ bool processEagleMacro(uint16_t keycode, keyrecord_t *record)
                 register_code(KC_LSFT);
                 register_code(KC_LCTL);
                 register_code(KC_LALT);
-                register_code(KC_F5);
-                unregister_code(KC_F5);
+                tap_code(KC_F5);
                 unregister_code(KC_LALT);
                 unregister_code(KC_LCTL);
                 unregister_code(KC_LSFT);
@@ -176,8 +164,7 @@ bool processEagleMacro(uint16_t keycode, keyrecord_t *record)
                 register_code(KC_LSFT);
                 register_code(KC_LCTL);
                 register_code(KC_LALT);
-                register_code(KC_F6);
-                unregister_code(KC_F6);
+                tap_code(KC_F6);
                 unregister_code(KC_LALT);
                 unregister_code(KC_LCTL);
                 unregister_code(KC_LSFT);
@@ -189,8 +176,7 @@ bool processEagleMacro(uint16_t keycode, keyrecord_t *record)
                 register_code(KC_LSFT);
                 register_code(KC_LCTL);
                 register_code(KC_LALT);
-                register_code(KC_F7);
-                unregister_code(KC_F7);
+                tap_code(KC_F7);
                 unregister_code(KC_LALT);
                 unregister_code(KC_LCTL);
                 unregister_code(KC_LSFT);
@@ -202,8 +188,7 @@ bool processEagleMacro(uint16_t keycode, keyrecord_t *record)
                 register_code(KC_LSFT);
                 register_code(KC_LCTL);
                 register_code(KC_LALT);
-                register_code(KC_F8);
-                unregister_code(KC_F8);
+                tap_code(KC_F8);
                 unregister_code(KC_LALT);
                 unregister_code(KC_LCTL);
                 unregister_code(KC_LSFT);
@@ -215,8 +200,7 @@ bool processEagleMacro(uint16_t keycode, keyrecord_t *record)
                 register_code(KC_LSFT);
                 register_code(KC_LCTL);
                 register_code(KC_LALT);
-                register_code(KC_F9);
-                unregister_code(KC_F9);
+                tap_code(KC_F9);
                 unregister_code(KC_LALT);
                 unregister_code(KC_LCTL);
                 unregister_code(KC_LSFT);
@@ -228,9 +212,7 @@ bool processEagleMacro(uint16_t keycode, keyrecord_t *record)
                 register_code(KC_LSFT);
                 register_code(KC_LCTL);
                 register_code(KC_LALT);
-                register_code(KC_F11);
-
-                unregister_code(KC_F11);
+                tap_code(KC_F11);
                 unregister_code(KC_LALT);
                 unregister_code(KC_LCTL);
                 unregister_code(KC_LSFT);
@@ -242,8 +224,7 @@ bool processEagleMacro(uint16_t keycode, keyrecord_t *record)
                 register_code(KC_LSFT);
                 register_code(KC_LCTL);
                 register_code(KC_LALT);
-                register_code(KC_F12);
-                unregister_code(KC_F12);
+                tap_code(KC_F12);
                 unregister_code(KC_LALT);
                 unregister_code(KC_LCTL);
                 unregister_code(KC_LSFT);
@@ -255,8 +236,7 @@ bool processEagleMacro(uint16_t keycode, keyrecord_t *record)
                 register_code(KC_LSFT);
                 register_code(KC_LCTL);
                 register_code(KC_LALT);
-                register_code(KC_V);
-                unregister_code(KC_V);
+                tap_code(KC_V);
                 unregister_code(KC_LALT);
                 unregister_code(KC_LCTL);
                 unregister_code(KC_LSFT);
@@ -268,8 +248,7 @@ bool processEagleMacro(uint16_t keycode, keyrecord_t *record)
                 register_code(KC_LSFT);
                 register_code(KC_LCTL);
                 register_code(KC_LALT);
-                register_code(KC_H);
-                unregister_code(KC_H);
+                tap_code(KC_H);
                 unregister_code(KC_LALT);
                 unregister_code(KC_LCTL);
                 unregister_code(KC_LSFT);
@@ -281,8 +260,7 @@ bool processEagleMacro(uint16_t keycode, keyrecord_t *record)
                 register_code(KC_LSFT);
                 register_code(KC_LCTL);
                 register_code(KC_LALT);
-                register_code(KC_L);
-                unregister_code(KC_L);
+                tap_code(KC_L);
                 unregister_code(KC_LALT);
                 unregister_code(KC_LCTL);
                 unregister_code(KC_LSFT);
@@ -294,8 +272,7 @@ bool processEagleMacro(uint16_t keycode, keyrecord_t *record)
                 register_code(KC_LSFT);
                 register_code(KC_LCTL);
                 register_code(KC_LALT);
-                register_code(KC_P);
-                unregister_code(KC_P);
+                tap_code(KC_P);
                 unregister_code(KC_LALT);
                 unregister_code(KC_LCTL);
                 unregister_code(KC_LSFT);

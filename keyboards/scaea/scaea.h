@@ -3,21 +3,21 @@
 
 #include "quantum.h"
 
-#define LYR1    1
-#define LYR11   2
-#define LYR2    3
-#define LYR21   4
-#define LYR3    5
-#define LYR31   6
-#define LYR4    7
-#define LYR41   8
-#define LYR5    9
-#define LYR51   10
-#define LYR6    11
-#define LYR61   12
-#define EAGLE1  13
-#define EAGLE2  14
-#define HUB     0
+#define LYR1        1
+#define LYR11       2
+#define LYR2        3
+#define LYR21       4
+#define JETBRAINS1  5
+#define JETBRAINS2  6
+#define LYR4        7
+#define LYR41       8
+#define LYR5        9
+#define LYR51       10
+#define LYR6        11
+#define LYR61       12
+#define EAGLEBRD1   13
+#define EAGLEBRD2   14
+#define HUB         0
 
 #define KEYMAP(\
     K00, K01, K02, K03, K04, K05, \

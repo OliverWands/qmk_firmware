@@ -32,8 +32,8 @@ void setLayerIndication(uint8_t layer) {
         case LYR21:
             digitToBin(2);
             break;
-        case LYR3:
-        case LYR31:
+        case JETBRAINS1:
+        case JETBRAINS2:
             digitToBin(3);
             break;
         case LYR4:
@@ -48,8 +48,8 @@ void setLayerIndication(uint8_t layer) {
         case LYR61:
             digitToBin(6);
             break;
-        case EAGLE1:
-        case EAGLE2:
+        case EAGLEBRD1:
+        case EAGLEBRD2:
         case HUB:
             digitToBin(7);
             break;
