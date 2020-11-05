@@ -30,8 +30,7 @@ enum eagle_keycodes {
     EAGLE_POLYGON
 };
 
-bool processEagleMacro(uint16_t keycode, keyrecord_t *record)
-{
+bool processEagleMacro(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case EAGLE_UNDO:
             if (record->event.pressed) {
