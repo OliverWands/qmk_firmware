@@ -1,6 +1,7 @@
 //
 // Created by ow on 03.11.20.
 //
+#include "keymap_german.h"
 
 #ifndef QMK_FIRMWARE_EAGLEMACROS_H
 #define QMK_FIRMWARE_EAGLEMACROS_H
@@ -11,6 +12,7 @@ enum eagle_keycodes {
     EAGLE_ZOOMFIT,
     EAGLE_MOVE,
     EAGLE_RIPUP,
+    EAGLE_RIPUP_GND,
     EAGLE_ROUTEWIRE,
     EAGLE_TEXT,
     EAGLE_RATSNEST,
@@ -77,6 +79,19 @@ bool processEagleMacro(uint16_t keycode, keyrecord_t *record) {
                 register_code(KC_LSFT);
                 register_code(KC_LCTL);
                 tap_code(KC_R);
+                unregister_code(KC_LCTL);
+                unregister_code(KC_LSFT);
+            }
+            return false;
+            break;
+            // RIPUP @ *GND GND*;
+        case EAGLE_RIPUP_GND:
+            if (record->event.pressed) {
+                register_code(KC_LSFT);
+                register_code(KC_LCTL);
+                register_code(KC_LALT);
+                tap_code(KC_I);
+                unregister_code(KC_LALT);
                 unregister_code(KC_LCTL);
                 unregister_code(KC_LSFT);
             }
